@@ -45,6 +45,7 @@ const fetchImgData = (files, i) => {
     const reader = new FileReader();
     reader.readAsDataURL(files[i])
     let img = new Image();
+    let exportImg = new Image();
 
     const ctx = offScreenCanvas.getContext('2d');
      //150 hard coded will become a grab from state
@@ -62,14 +63,21 @@ const fetchImgData = (files, i) => {
         console.log('[I]', i)
         ctx.drawImage(img, 0, 0, 150, 150);
 
-        exportCanvasData();
+        console.log('[OFF SCREEN CANVAS DATA]', offScreenCanvas.toDataURL())
+        
+        exportImg.src = offScreenCanvas.toDataURL(); //this can be a png file?
+        //exportImg.src = offScreenCanvas.toDataURL();
+        exportImg.onload = (()=>{
+            store.dispatch(imgCreator(exportImg))
+        })
+        
 
         //exportCanvasData();
             
             //data intercept, CANVAS CANT BE ADDED HERE (try intercept after reducer is created)
             
             //ships processed img to reducer.
-            //store.dispatch(imgCreator(img)) // Creates img obj with src already implemented
+        //store.dispatch(imgCreator(img)) // Creates img obj with src already implemented
             //---->store.dispatch(imgCreator(newImg))
         if(i >= files.length){
             return;
@@ -82,14 +90,6 @@ const fetchImgData = (files, i) => {
     })
 }
 
-const exportCanvasData = () => {
-    console.log('[OFF SCREEN CANVAS DATA]', offScreenCanvas.toDataURL())
-    let exportImg = new Image();
-    exportImg.src = offScreenCanvas.toDataURL(); //this can be a png file?
-    exportImg.src = offScreenCanvas.toDataURL();
-    store.dispatch(imgCreator(exportImg))
-
-}
 // const UploadComponent = (props) => {
 //     return(
 //         <div className='UploadComponent'>
@@ -108,6 +108,8 @@ class UploadComponent extends Component {
         offScreenCanvas = canvas;
         canvas.width = 150;
         canvas.height = 150;
+
+
     }
     render() {
         return(

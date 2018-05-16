@@ -39,7 +39,10 @@ class CanvasElement extends Component {
 
 
         if (this.props.srcImg){
+            console.log('DRAAAAAAW')
             ctx.drawImage(this.props.srcImg, 0, 0);
+            //console.log('DRAAAAAAW')
+            //store.dispatch(quickFix())
         }
 
 

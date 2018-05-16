@@ -10,6 +10,10 @@ import {
 
 import './Style.css';
 
+
+
+
+
 class CanvasGridIndex extends PureComponent {
 
   render() {
