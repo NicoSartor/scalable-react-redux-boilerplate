@@ -36,7 +36,9 @@ class CanvasElement extends Component {
         canvas.height = 150;
          console.log('this.props.imgSrc')
         // //reader.readAsDataURL(file)
-
+        ctx.imageSmoothingEnabled = false;
+        ctx.webkitImageSmoothingEnabled = false;
+        ctx.mozImageSmoothingEnabled = false;
 
         if (this.props.srcImg){
             console.log('DRAAAAAAW')

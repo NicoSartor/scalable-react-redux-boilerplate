@@ -1,3 +1,11 @@
-#canvas{
+.CanvasElement #canvas{
     border: red solid 5px;
+    transition: all 1s;
+    margin: 5px;
+    grid-gap: 200px;
+}
+
+.CanvasElement #canvas:hover{
+    transform: translateY(-20px);
+    border: green solid 5px;
 }

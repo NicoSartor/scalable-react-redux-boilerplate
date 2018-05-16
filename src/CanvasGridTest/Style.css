@@ -1,0 +1,12 @@
+.GridContainer{
+    display: grid;
+    grid-template-columns:165px 165px 165px; 
+    position: absolute;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+/* .CanvasElement{
+    grid-gap: 200px;
+} */
