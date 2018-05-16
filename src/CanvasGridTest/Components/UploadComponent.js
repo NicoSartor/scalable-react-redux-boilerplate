@@ -54,7 +54,11 @@ const fetchImgData = (files, i) => {
             console.log('IMG FINISHED', i, files.length)
             console.log('[I]', i)
             store.dispatch(imgCreator(img)) // Creates img obj with src already implemented
-            // store.dispatch(quickFix())
+
+            
+            //data intercept
+            
+            
             if(i >= files.length){
                 return;
             }
@@ -70,6 +74,8 @@ const UploadComponent = (props) => {
         <div className='UploadComponent'>
             <h3>Upload Emulation</h3>
             <input type="file" name='image' multiple id='fileInput' onChange ={(event) => uploadHandler(event)} />
+            <canvas></canvas>
+            <button onClick = {()=>{console.log('CLICK')}}>TEST</button>
         </div>
     )
 }

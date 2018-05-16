@@ -25,7 +25,7 @@ class CanvasGridIndex extends PureComponent {
     // }
     const renderGrid = this.props.imgSrcs.map((file, index) => {
         console.log()
-        return <CanvasElement srcImg={file}  key={Math.random()*100} index = {index}/>
+        return <CanvasElement srcImg={file}  key={index} index = {index}/>
     })
 
     // const prepGrid = Object.keys(fileList).map((index) => { //How to make this one by one?
