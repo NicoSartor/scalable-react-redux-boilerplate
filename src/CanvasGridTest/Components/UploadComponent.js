@@ -61,15 +61,16 @@ const fetchImgData = (files, i) => {
         i++
         console.log('IMG FINISHED', i, files.length)
         console.log('[I]', i)
+    // Draws img on offScreenCanvas
         ctx.drawImage(img, 0, 0, 150, 150);
 
         console.log('[OFF SCREEN CANVAS DATA]', offScreenCanvas.toDataURL())
-        
-        exportImg.src = offScreenCanvas.toDataURL(); //this can be a png file?
-        //exportImg.src = offScreenCanvas.toDataURL();
-        exportImg.onload = (()=>{
-            store.dispatch(imgCreator(exportImg))
-        })
+    //Prepares canvas data for exporting
+       exportImg.src = offScreenCanvas.toDataURL(); //this can be a png file?
+    //Exports compressed data after loading it
+       exportImg.onload = (()=>{
+           store.dispatch(imgCreator(exportImg))
+       })
         
 
         //exportCanvasData();
