@@ -10,7 +10,7 @@ const initialState = {
 export default function CanvasGridReducer (state = initialState, action){
     console.log(state.imgSrcs)
     let canvasFeed = [...state.fileList];
-    let  imgSrcCopy = [...state.imgSrcs];
+    
     switch(action.type) {
         case 'FILE_CATCHER' :
         //canvasFeed.push(action.file);
@@ -54,11 +54,12 @@ export default function CanvasGridReducer (state = initialState, action){
         //         imgSrcs: imgSrcCopy 
         //     }
         case 'IMG_CREATOR' :
+        let  imgSrcCopy = [...state.imgSrcs];
         imgSrcCopy.push(action.data);
         console.log('[imgSrcCopy]', imgSrcCopy)
             return{
                 ...state,
-                imgSrcs: imgSrcCopy
+                imgSrcs: [...imgSrcCopy]
             }
         case 'QUICK_FIX' :
             console.log(state.fix , '[TRIGGER]')

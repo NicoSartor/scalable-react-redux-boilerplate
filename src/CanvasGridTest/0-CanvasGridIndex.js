@@ -18,13 +18,13 @@ class CanvasGridIndex extends PureComponent {
     let i = 0;
     const reader = new FileReader();
 
-    console.log(this.props.imgSrcs)
+    console.log('[IMG SRCS FROM STATE]' ,this.props.imgSrcs)
 
     // if(this.props.imgSrcs != ''){
         
     // }
     const renderGrid = this.props.imgSrcs.map((file, index) => {
-        console.log()
+        console.log('[FILE IMPORTING TO CANVAS]',file)
         return <CanvasElement srcImg={file}  key={index} index = {index}/>
     })
 

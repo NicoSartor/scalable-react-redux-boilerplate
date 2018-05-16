@@ -32,14 +32,14 @@ class CanvasElement extends Component {
         //     img.src = e.target.result
         // })
         console.log('[IMG SRC PROP]', this.props.srcImg)
-        canvas.width = 150;
+        canvas.width = 150; //to become a state value so canvas becomes flexible and 
         canvas.height = 150;
          console.log('this.props.imgSrc')
         // //reader.readAsDataURL(file)
 
 
         if (this.props.srcImg){
-            ctx.drawImage(this.props.srcImg, 0, 0, 150, 150);
+            ctx.drawImage(this.props.srcImg, 0, 0);
         }
 
 
